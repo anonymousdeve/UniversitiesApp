@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-kapt")
+
 }
 
 android {
@@ -45,9 +47,18 @@ dependencies {
 
 
     implementation(Libs.fragment)
-
     implementation(Libs.appcompat)
     implementation(Libs.activity)
+
+    implementation(Libs.room_ktx)
+    implementation(Libs.room_runtime)
+    kapt(Libs.room_compiler)
+
+
+    ///////////////dagger2
+    implementation(Libs.dagger_android)
+    kapt(Libs.dagger_compiler_kapt)
+    kapt(Libs.dagger_processor_kapt)
 
 
     testImplementation(libs.junit)

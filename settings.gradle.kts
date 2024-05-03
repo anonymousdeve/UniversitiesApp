@@ -23,3 +23,4 @@ rootProject.name = "INVADEAssessment"
 include(":app")
 include(":network")
 include(":base")
+include(":universities")

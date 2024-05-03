@@ -23,9 +23,18 @@ object Libs {
     val dagger_compiler_kapt = "com.google.dagger:dagger-compiler:${Versions.DAGGER}"
 
 
-
     val fragment = "androidx.fragment:fragment-ktx:${Versions.FRAGMENT}"
     val activity = "androidx.activity:activity-ktx:${Versions.ACTIVITY}"
+
+    val room_runtime = "androidx.room:room-runtime:${Versions.ROOM_DB}"
+    val room_ktx = "androidx.room:room-ktx:${Versions.ROOM_DB}"
+    val room_compiler = "androidx.room:room-compiler:${Versions.ROOM_DB}"
+
+
+
+    val lifecycle_runtime =  "androidx.lifecycle:lifecycle-runtime-ktx:"+Versions.LIFECYCLE
+    val lifecycle_livedata_kt =   "androidx.lifecycle:lifecycle-livedata-ktx:"+Versions.LIFECYCLE
+    val lifecycle_viewmodel_kt =  "androidx.lifecycle:lifecycle-viewmodel-ktx:"+Versions.LIFECYCLE
 
 
 }

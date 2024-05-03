@@ -6,19 +6,18 @@ plugins {
 }
 
 android {
-    compileSdk = AndroidLibs.compileSdk
-    namespace = AndroidLibs.namespace
+    namespace = "ali.hrhera.module.universities"
+    compileSdk = 34
 
     defaultConfig {
-        applicationId = AndroidLibs.applicationId
-        minSdk = AndroidLibs.minSdk
-        targetSdk = AndroidLibs.targetSdk
-        versionCode = AndroidLibs.versionCode
-        versionName = AndroidLibs.versionName
+        applicationId = "ali.hrhera.module.universities"
+        minSdk = 24
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-
 
     buildTypes {
         release {
@@ -39,12 +38,28 @@ android {
 }
 
 dependencies {
-    implementation(project(":network"))
     implementation(project(":base"))
+    implementation(project(":network"))
 
-    implementation(Libs.core_ktx)
-    implementation(libs.material)
-    implementation(libs.androidx.activity)
+///////////////dagger2
+    implementation(Libs.dagger_android)
+    kapt(Libs.dagger_compiler_kapt)
+    kapt(Libs.dagger_processor_kapt)
+
+    //coroutines
+    implementation(Libs.coroutines_android)
+    implementation(Libs.coroutines_core)
+
+    //coroutines
+    implementation(Libs.lifecycle_runtime)
+    implementation(Libs.lifecycle_livedata_kt)
+    implementation(Libs.lifecycle_viewmodel_kt)
+
+    implementation(Libs.fragment)
+
+
+
+
     implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -25,5 +25,7 @@ object Versions {
     val FRAGMENT = "1.6.2"
     val ACTIVITY = "1.8.2"
 
+    val ROOM_DB = "2.6.1"
+
 
 }
