@@ -65,7 +65,7 @@ dependencies {
     debugImplementation(Libs.chuckerDebug)
     releaseImplementation(Libs.chuckerRelease)
 //
-//    testImplementation(libs.junit)
-//    androidTestImplementation(libs.androidx.junit)
-//    androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }
