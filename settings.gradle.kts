@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "INVADEAssessment"
 include(":app")
- 
+include(":network")

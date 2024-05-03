@@ -36,9 +36,10 @@ android {
 }
 
 dependencies {
+    implementation(project(":network"))
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
+    implementation(Libs.core_ktx)
+    implementation(Libs.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)

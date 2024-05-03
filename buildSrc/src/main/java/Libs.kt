@@ -19,7 +19,6 @@ object Libs {
 
 
     val dagger_android = "com.google.dagger:dagger-android:${Versions.DAGGER}"
-    val dagger_android_support = "com.google.dagger:dagger-android-support:${Versions.DAGGER}"
     val dagger_processor_kapt = "com.google.dagger:dagger-android-processor:${Versions.DAGGER}"
     val dagger_compiler_kapt = "com.google.dagger:dagger-compiler:${Versions.DAGGER}"
 
