@@ -61,6 +61,9 @@ dependencies {
     kapt(Libs.dagger_processor_kapt)
 
 
+    implementation(Libs.recycler_view)
+
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
