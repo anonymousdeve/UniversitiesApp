@@ -31,13 +31,15 @@ object Libs {
     val room_compiler = "androidx.room:room-compiler:${Versions.ROOM_DB}"
 
 
+    val lifecycle_runtime = "androidx.lifecycle:lifecycle-runtime-ktx:" + Versions.LIFECYCLE
+    val lifecycle_livedata_kt = "androidx.lifecycle:lifecycle-livedata-ktx:" + Versions.LIFECYCLE
+    val lifecycle_viewmodel_kt = "androidx.lifecycle:lifecycle-viewmodel-ktx:" + Versions.LIFECYCLE
 
-    val lifecycle_runtime =  "androidx.lifecycle:lifecycle-runtime-ktx:"+Versions.LIFECYCLE
-    val lifecycle_livedata_kt =   "androidx.lifecycle:lifecycle-livedata-ktx:"+Versions.LIFECYCLE
-    val lifecycle_viewmodel_kt =  "androidx.lifecycle:lifecycle-viewmodel-ktx:"+Versions.LIFECYCLE
 
+    val recycler_view = "androidx.recyclerview:recyclerview:" + Versions.RECYCLERVIEW
 
-    val recycler_view =  "androidx.recyclerview:recyclerview:"+Versions.RECYCLERVIEW
+    val navigation_fragment = "androidx.navigation:navigation-fragment-ktx:" + Versions.NAVIGATION
+    val navigation_fragment_ui = "androidx.navigation:navigation-ui-ktx:" + Versions.NAVIGATION
 
 
 }

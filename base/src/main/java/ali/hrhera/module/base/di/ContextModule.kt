@@ -1,4 +1,4 @@
-package ali.hrhera.module.network.di
+package ali.hrhera.module.base.di
 
 import android.app.Application
 import android.content.Context

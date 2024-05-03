@@ -16,6 +16,9 @@ interface UniversityDAO {
 
 
     @Query("SELECT * FROM university WHERE name = :name")
-    fun getSingleUniversity(name: Int): University
+    fun getSingleUniversity(name: String): University
+
+    @Query("SELECT * FROM university WHERE country = :country")
+    fun getUniversityByCountry(country: String): Universities
 
 }

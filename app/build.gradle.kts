@@ -41,12 +41,17 @@ android {
 dependencies {
     implementation(project(":universities"))
     implementation(project(":base"))
+    implementation(project(":network"))
 
     implementation(Libs.core_ktx)
-    implementation(libs.material)
-    implementation(libs.androidx.activity)
+    implementation(Libs.material)
+    implementation(Libs.appcompat)
+
+    implementation(Libs.navigation_fragment)
+    implementation(Libs.navigation_fragment_ui)
+
+
     implementation(libs.androidx.constraintlayout)
-    implementation(project(":network"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

@@ -14,6 +14,7 @@ const val BAD_INTERNET = 11
 abstract class BaseRepository() {
 
 
+
     private val defaultDispatcher = Dispatchers.IO
 
     protected suspend fun <T : Any> buildApi(task: suspend () -> T) = flow<BaseResponse<T>> {

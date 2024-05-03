@@ -5,7 +5,9 @@ object Versions {
     val GSON_CONVERTER = "2.9.0"
     val COROUTINES_ANDROID = "1.7.3"
     val COROUTINES_CORE = "1.7.3"
+
     val LIFECYCLE = "2.7.0"
+
     val RECYCLERVIEW = "1.3.2"
     val CONSTRAINT_LAYOUT = "2.0.4"
     val KOTLIN = "1.9.0"
@@ -27,6 +29,10 @@ object Versions {
     val ACTIVITY = "1.8.2"
 
     val ROOM_DB = "2.6.1"
+
+
+    val NAVIGATION = "2.7.7"
+
 
 
 }

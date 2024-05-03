@@ -37,6 +37,9 @@ android {
 dependencies {
     implementation(project(":base"))
     implementation(project(":network"))
+    implementation(Libs.retrofit2)
+    implementation(Libs.gson)
+
 
 ///////////////dagger2
     implementation(Libs.dagger_android)

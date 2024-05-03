@@ -7,8 +7,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class BaseViewModel : ViewModel() {
+
+open class BaseViewModel @Inject
+constructor() : ViewModel() {
+
+
     protected fun launchTask(task: suspend () -> Unit) =
         viewModelScope.launch(Dispatchers.IO) { task() }
 
@@ -27,7 +32,7 @@ class BaseViewModel : ViewModel() {
                         try {
                             onError(response.errorBody.errorMessage ?: response.throwable.message ?: "")
                         } catch (e: Throwable) {
-                            onError(e.message?:"")
+                            onError(e.message ?: "")
                         }
                     }
 
