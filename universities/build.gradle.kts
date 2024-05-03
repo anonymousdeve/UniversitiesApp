@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-kapt")
 
@@ -7,14 +7,11 @@ plugins {
 
 android {
     namespace = "ali.hrhera.module.universities"
-    compileSdk = 34
+    compileSdk = AndroidLibs.compileSdk
 
     defaultConfig {
-        applicationId = "ali.hrhera.module.universities"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = AndroidLibs.minSdk
+        lint.targetSdk = AndroidLibs.targetSdk
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

@@ -39,13 +39,14 @@ android {
 }
 
 dependencies {
-    implementation(project(":network"))
+    implementation(project(":universities"))
     implementation(project(":base"))
 
     implementation(Libs.core_ktx)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(project(":network"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
