@@ -11,7 +11,6 @@ object NetworkConstants {
 
     const val BASE_URL = BuildConfig.BASE_URL
 
-    const val NO_INTERNET = 10
-    const val BAD_INTERNET = 11
+
 
 }

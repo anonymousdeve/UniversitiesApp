@@ -22,4 +22,8 @@ object Versions {
     val DAGGER = "2.20"
 
 
+    val FRAGMENT = "1.6.2"
+    val ACTIVITY = "1.8.2"
+
+
 }

@@ -23,6 +23,11 @@ object Libs {
     val dagger_compiler_kapt = "com.google.dagger:dagger-compiler:${Versions.DAGGER}"
 
 
+
+    val fragment = "androidx.fragment:fragment-ktx:${Versions.FRAGMENT}"
+    val activity = "androidx.activity:activity-ktx:${Versions.ACTIVITY}"
+
+
 }
 
 

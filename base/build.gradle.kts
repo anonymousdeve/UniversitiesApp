@@ -1,24 +1,18 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id("kotlin-kapt")
-
 }
 
 android {
+    namespace = "ali.hrhera.module.base"
     compileSdk = AndroidLibs.compileSdk
-    namespace = AndroidLibs.namespace
 
     defaultConfig {
-        applicationId = AndroidLibs.applicationId
         minSdk = AndroidLibs.minSdk
-        targetSdk = AndroidLibs.targetSdk
-        versionCode = AndroidLibs.versionCode
-        versionName = AndroidLibs.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
-
 
     buildTypes {
         release {
@@ -33,15 +27,29 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        dataBinding = true
+    }
 }
 
 dependencies {
-    implementation(project(":network"))
+
+    implementation(Libs.retrofit2)
+    implementation(Libs.gson)
+
+    implementation(Libs.coroutines_core)
+    implementation(Libs.coroutines_android)
+
 
     implementation(Libs.core_ktx)
-    implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
+
+
+    implementation(Libs.fragment)
+
+    implementation(Libs.appcompat)
+    implementation(Libs.activity)
+
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
