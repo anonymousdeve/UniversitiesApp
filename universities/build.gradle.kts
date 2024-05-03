@@ -54,6 +54,8 @@ dependencies {
 
     implementation(Libs.fragment)
 
+    implementation(Libs.recycler_view)
+
 
 
 

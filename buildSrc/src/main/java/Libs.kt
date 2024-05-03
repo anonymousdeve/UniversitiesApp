@@ -37,6 +37,9 @@ object Libs {
     val lifecycle_viewmodel_kt =  "androidx.lifecycle:lifecycle-viewmodel-ktx:"+Versions.LIFECYCLE
 
 
+    val recycler_view =  "androidx.recyclerview:recyclerview:"+Versions.RECYCLERVIEW
+
+
 }
 
 
