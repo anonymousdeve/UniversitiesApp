@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">UniversitiesList</string>
+    <string name="web_pages">Web pages:</string>
+    <string name="domains">Domains :</string>
 </resources>

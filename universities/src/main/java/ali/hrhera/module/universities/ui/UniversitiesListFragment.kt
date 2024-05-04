@@ -25,6 +25,7 @@ class UniversitiesListFragment : BaseFragment<FragmentUniversitiesListBinding>()
 
         binding.viewModel = viewModel
         binding.adapter = adapter
+        viewModel.fetchOnlineUniversities()
 
 
         viewModel.events.observe(viewLifecycleOwner) {

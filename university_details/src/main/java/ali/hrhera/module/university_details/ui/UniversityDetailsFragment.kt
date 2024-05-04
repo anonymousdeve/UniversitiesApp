@@ -14,14 +14,30 @@ class UniversityDetailsFragment : BaseFragment<FragmentUniversityDetailsBinding>
         FragmentUniversityDetailsBinding.inflate(inflater, container, false)
 
     override fun afterViewSetUp() {
+        // Check if arguments are not null
         arguments?.let { argument ->
-            (argument.parcelable(KEY_UNIVERSITY) as University?)?.let {
-                val viewModel = UniversityDetailsViewModel(it)
-                binding.viewModel = viewModel
-            } ?: findNavController().popBackStack()
-
-        } ?: findNavController().popBackStack()
-
+            // Retrieve the University object from arguments
+            (argument.parcelable(KEY_UNIVERSITY) as University?).let {
+                it?.let { university ->
+                    // Initialize UniversityDetailsViewModel with the retrieved University object
+                    val viewModel = UniversityDetailsViewModel(university).apply {
+                        // Set click listener for refresh button
+                        refreshClick = {
+                            // Navigate back when refresh button is clicked
+                            findNavController().popBackStack()
+                        }
+                    }
+                    // Bind the ViewModel to the layout
+                    binding.viewModel = viewModel
+                } ?: run {
+                    // If University object is null, navigate back
+                    findNavController().popBackStack()
+                }
+            }
+        } ?: run {
+            // If arguments are null, navigate back
+            findNavController().popBackStack()
+        }
     }
 
 

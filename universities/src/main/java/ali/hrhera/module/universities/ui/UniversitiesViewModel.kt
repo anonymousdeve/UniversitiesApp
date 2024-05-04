@@ -34,9 +34,6 @@ class UniversitiesViewModel
     init {
         handelOnlineResponse()
         handelLocalResponse()
-
-        fetchOnlineUniversities()
-
     }
 
 
@@ -73,7 +70,7 @@ class UniversitiesViewModel
         getUniversitiesUseCase.universitiesLocalResponse.asSharedFlow().map { it is BaseResponse.Loading }.asLiveData()
 
 
-    private fun fetchOnlineUniversities() {
+     fun fetchOnlineUniversities() {
         launchTask {
             getUniversitiesUseCase.getOnlineUniversities(country)
         }
