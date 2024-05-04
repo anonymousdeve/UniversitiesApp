@@ -39,6 +39,7 @@ class UniversitiesViewModel
         }) {
             saveToLocal(it)
             _eventMutLiveData.postValue(UniversitiesEvents.ShowData(it))
+
         }
 
 
@@ -63,8 +64,10 @@ class UniversitiesViewModel
         }
     }
 
-    val _loading = MutableLiveData(true)
-    val loading :LiveData<Boolean> = _loading
+    private val _loading = MutableLiveData(true)
+    val loading: LiveData<Boolean> = _loading
+
+
 
     fun fetchOnlineUniversities() {
         launchTask {

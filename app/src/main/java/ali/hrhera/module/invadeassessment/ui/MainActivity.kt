@@ -30,7 +30,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), MoveToDetailsCallBack 
     }
 
     override fun withItem(item: University) {
-        Log.w("TAG WithItem", "withItem: ")
         controller.navigate(R.id.fragment_university_details, bundleOf(KEY_UNIVERSITY to item))
 
     }

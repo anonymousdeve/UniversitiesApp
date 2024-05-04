@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">UniversitiesList</string>
+    <string name="no_data_fetched_check_you_internet">No Data Fetched check you internet</string>
 </resources>
