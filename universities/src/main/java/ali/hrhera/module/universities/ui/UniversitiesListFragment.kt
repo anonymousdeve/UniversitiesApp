@@ -5,6 +5,7 @@ import ali.hrhera.module.universities.databinding.FragmentUniversitiesListBindin
 import ali.hrhera.module.universities.util.MoveToDetailsCallBack
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,8 +23,6 @@ class UniversitiesListFragment : BaseFragment<FragmentUniversitiesListBinding>()
 
     private val viewModel: UniversitiesViewModel by viewModels()
     override fun afterViewSetUp() {
-
-        binding.viewModel = viewModel
         binding.adapter = adapter
         viewModel.fetchOnlineUniversities()
 
@@ -33,6 +32,10 @@ class UniversitiesListFragment : BaseFragment<FragmentUniversitiesListBinding>()
                 is UniversitiesEvents.ShowData -> adapter.submitData(it.items)
                 UniversitiesEvents.NoAction -> TODO()
             }
+        }
+
+        viewModel.loading.observe(viewLifecycleOwner) {
+            binding.loading.isVisible = it
         }
     }
 

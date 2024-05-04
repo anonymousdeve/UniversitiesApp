@@ -4,12 +4,9 @@
     <data>
 
         <variable
-            name="viewModel"
-            type="ali.hrhera.module.universities.ui.UniversitiesViewModel" />
-        <variable
             name="adapter"
             type="androidx.recyclerview.widget.RecyclerView.Adapter" />
-        <import type="android.view.View"/>
+
 
     </data>
 
@@ -26,14 +23,23 @@
             android:clipToPadding="false"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-        <ProgressBar
-
-            android:layout_width="wrap_content"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:visibility="@{viewModel.onlineLoading?View.VISIBLE:viewModel.localeLoading?View.VISIBLE:View.GONE}"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp" />
+        </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

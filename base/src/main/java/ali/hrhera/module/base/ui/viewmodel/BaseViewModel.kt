@@ -18,10 +18,14 @@ open class BaseViewModel : ViewModel() {
 
     protected fun <T : Any> Flow<BaseResponse<T>>.responseCollect(
         onError: (String) -> Unit = {},
+        loading: (Boolean) -> Unit = {},
+
         onSuccess: (T) -> Unit
     ) {
         launchTask {
             this@responseCollect.collectLatest { response ->
+                loading(response is BaseResponse.Loading)
+
                 when (response) {
                     is BaseResponse.Loading -> {
                     }
