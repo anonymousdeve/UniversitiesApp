@@ -12,6 +12,8 @@ constructor(val universitiesRepo: UniversitiesRepo) {
     val universitiesResponse = universitiesRepo.getUniversitiesResponse
 
     suspend fun getOnlineUniversities(country: String) = universitiesRepo.getUniversities(country)
+
+    val universitiesLocalResponse = universitiesRepo.getUniversitiesLocaleResponse
     suspend fun getLocalUniversities(country: String) = universitiesRepo.getLocalUniversities(country)
 
 }

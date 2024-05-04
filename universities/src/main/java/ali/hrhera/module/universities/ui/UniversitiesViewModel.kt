@@ -11,6 +11,7 @@ import androidx.lifecycle.asLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -21,39 +22,38 @@ import javax.inject.Inject
 @HiltViewModel
 class UniversitiesViewModel
 @Inject constructor(
-    val getUniversitiesUseCase: GetUniversitiesUseCase
+    private val getUniversitiesUseCase: GetUniversitiesUseCase,
+    private val saveToLocalUseCase: SaveUniversitiesToLocalUseCase
 ) : BaseViewModel() {
 
 
     private val _eventMutLiveData = MutableLiveData<UniversitiesEvents>()
     val events: LiveData<UniversitiesEvents> = _eventMutLiveData
 
-    val adapter = UniversitiesAdapter().apply {
-        onItemClickHandel = {
-            _eventMutLiveData.postValue(UniversitiesEvents.MoveToDetails(it))
-        }
-    }
 
     init {
-        // Initialize the ViewModel by fetching universities data
+        handelOnlineResponse()
+        handelLocalResponse()
+
         fetchOnlineUniversities()
+
     }
 
 
-    init {
+    private fun handelOnlineResponse() {
         getUniversitiesUseCase.universitiesResponse.responseCollect({
             getLocalUniversities()
 
         }) {
             saveToLocal(it)
-            launchTask {
-                withContext(Dispatchers.Main) {
-                    adapter.submitData(it)
-                }
-            }
+            _eventMutLiveData.postValue(UniversitiesEvents.ShowData(it))
         }
+    }
 
-        fetchOnlineUniversities()
+    private fun handelLocalResponse() {
+        getUniversitiesUseCase.universitiesLocalResponse.responseCollect {
+            _eventMutLiveData.postValue(UniversitiesEvents.ShowData(it))
+        }
     }
 
 
@@ -67,7 +67,10 @@ class UniversitiesViewModel
             }
     }
 
-    val loading = getUniversitiesUseCase.universitiesResponse.map { it is BaseResponse.Loading }.asLiveData()
+    val onlineLoading =
+        getUniversitiesUseCase.universitiesResponse.asSharedFlow().map { it is BaseResponse.Loading }.asLiveData()
+    val localeLoading =
+        getUniversitiesUseCase.universitiesLocalResponse.asSharedFlow().map { it is BaseResponse.Loading }.asLiveData()
 
 
     private fun fetchOnlineUniversities() {
@@ -77,15 +80,12 @@ class UniversitiesViewModel
     }
 
 
-    @Inject
-    lateinit var saveToLocalUseCase: SaveUniversitiesToLocalUseCase
-
     /**
      * Saves universities data to the local database.
      * @param universities The universities data to be saved.
      */
 
-    fun saveToLocal(universities: Universities) {
+    private fun saveToLocal(universities: Universities) {
         launchTask {
             saveToLocalUseCase.saveToLocal(universities)
         }

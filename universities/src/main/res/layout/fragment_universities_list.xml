@@ -6,6 +6,9 @@
         <variable
             name="viewModel"
             type="ali.hrhera.module.universities.ui.UniversitiesViewModel" />
+        <variable
+            name="adapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
         <import type="android.view.View"/>
 
     </data>
@@ -19,7 +22,7 @@
             android:layout_height="match_parent"
             android:layout_marginHorizontal="16dp"
             android:layout_marginVertical="12dp"
-            android:adapter="@{viewModel.adapter}"
+            android:adapter="@{adapter}"
             android:clipToPadding="false"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
@@ -30,7 +33,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:visibility="@{viewModel.loading?View.VISIBLE:View.GONE}"
+            android:visibility="@{viewModel.onlineLoading?View.VISIBLE:viewModel.localeLoading?View.VISIBLE:View.GONE}"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

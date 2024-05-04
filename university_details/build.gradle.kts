@@ -29,9 +29,13 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        dataBinding = true
+    }
 }
 
 dependencies {
+    implementation(project(":base"))
 
     implementation(Libs.appcompat)
     implementation(Libs.material)
@@ -42,6 +46,7 @@ dependencies {
     kapt(Libs.kapt_dagger_hilt_compiler)
     kapt(Libs.kapt_hilt_android_compiler)
 
+    implementation(Libs.navigation_fragment)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

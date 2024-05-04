@@ -24,9 +24,10 @@ class UniversitiesRepo
             apiService.getUniversityByCountry(country).map { it.toUniversity() }
         })
 
+    val getUniversitiesLocaleResponse = MutableSharedFlow<BaseResponse<Universities>>(replay = 0)
 
     suspend fun getLocalUniversities(country: String) =
-        getUniversitiesResponse.emitAll(flow = buildRoom { localDb.getUniversityByCountry(country) })
+        getUniversitiesLocaleResponse.emitAll(flow = buildRoom { localDb.getUniversityByCountry(country) })
 
 
     private val saveUniversitiesResponse = MutableStateFlow<BaseResponse<Unit>>(BaseResponse.None)

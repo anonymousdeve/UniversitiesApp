@@ -41,6 +41,7 @@ android {
 
 dependencies {
     implementation(project(":universities"))
+    implementation(project(":university_details"))
     implementation(project(":base"))
     implementation(Libs.runtime_worker)
     implementation(Libs.runtime_worker_ktx)

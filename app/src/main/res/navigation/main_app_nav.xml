@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_universities_list" />
     <fragment
         android:id="@+id/fragment_university_details"
-        android:name="ali.hrhera.module.universities.ui.UniversitiesListFragment"
+        android:name="ali.hrhera.module.university_details.ui.UniversityDetailsFragment"
         android:label="UniversitiesListFragment"
-        tools:layout="@layout/fragment_universities_list" />
+        tools:layout="@layout/fragment_university_details" />
 </navigation>
