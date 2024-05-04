@@ -5,15 +5,17 @@ import ali.hrhera.module.base.data.local.UniversityDb
 import android.content.Context
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 @Module
+@InstallIn(SingletonComponent::class)
 object RoomDAOProviderModule {
-
-
     @Provides
     @Singleton
-    fun provideDAO(context: Context): UniversityDAO = UniversityDb.universityDAO(context)
+    fun provideDAO(@ApplicationContext context: Context): UniversityDAO = UniversityDb.universityDAO(context)
 
 
 }

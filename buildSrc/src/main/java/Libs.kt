@@ -18,9 +18,6 @@ object Libs {
     val chuckerRelease = "com.github.chuckerteam.chucker:library-no-op:${Versions.CHUCKER}"
 
 
-    val dagger_android = "com.google.dagger:dagger-android:${Versions.DAGGER}"
-    val dagger_processor_kapt = "com.google.dagger:dagger-android-processor:${Versions.DAGGER}"
-    val dagger_compiler_kapt = "com.google.dagger:dagger-compiler:${Versions.DAGGER}"
 
 
     val fragment = "androidx.fragment:fragment-ktx:${Versions.FRAGMENT}"
@@ -41,6 +38,16 @@ object Libs {
     val navigation_fragment = "androidx.navigation:navigation-fragment-ktx:" + Versions.NAVIGATION
     val navigation_fragment_ui = "androidx.navigation:navigation-ui-ktx:" + Versions.NAVIGATION
 
+
+
+    val hilt_android = "com.google.dagger:hilt-android:${Versions.HILT}"
+    val kapt_dagger_hilt_compiler = "com.google.dagger:hilt-compiler:${Versions.HILT}"
+    val kapt_hilt_android_compiler =  "com.google.dagger:hilt-android-compiler:${Versions.HILT}"
+    val kapt_hilt_compiler =  "androidx.hilt:hilt-compiler:${Versions.HILT_COMPILER}"
+    val hilt_worker = "androidx.hilt:hilt-work:${Versions.HILT_WORKER}"
+
+    val runtime_worker_ktx = "androidx.work:work-runtime-ktx:${Versions.RUNTIME_WORKER_KTX}"
+    val runtime_worker ="androidx.work:work-runtime:${Versions.RUNTIME_WORKER}"
 
 }
 

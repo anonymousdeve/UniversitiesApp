@@ -19,7 +19,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "INVADEAssessment"
+rootProject.name = "UniversitiesApp"
 include(":app")
 include(":network")
 include(":base")

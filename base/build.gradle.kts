@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 
 }
 
@@ -55,10 +56,12 @@ dependencies {
     kapt(Libs.room_compiler)
 
 
-    ///////////////dagger2
-    implementation(Libs.dagger_android)
-    kapt(Libs.dagger_compiler_kapt)
-    kapt(Libs.dagger_processor_kapt)
+    ///////////////hilt
+    implementation(Libs.hilt_android)
+    implementation(Libs.hilt_worker)
+    kapt(Libs.kapt_hilt_compiler)
+    kapt(Libs.kapt_dagger_hilt_compiler)
+    kapt(Libs.kapt_hilt_android_compiler)
 
 
     implementation(Libs.recycler_view)

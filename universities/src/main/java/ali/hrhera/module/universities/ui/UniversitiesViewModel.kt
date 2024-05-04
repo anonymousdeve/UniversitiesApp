@@ -1,35 +1,34 @@
 package ali.hrhera.module.universities.ui
 
-import ali.hrhera.module.base.di.AppComponent
-import ali.hrhera.module.base.di.DaggerAppComponent
+import ali.hrhera.module.base.data.network.BaseResponse
+import ali.hrhera.module.base.domain.Universities
 import ali.hrhera.module.base.ui.viewmodel.BaseViewModel
 import ali.hrhera.module.universities.use_case.GetUniversitiesUseCase
-import androidx.lifecycle.MutableLiveData
+import ali.hrhera.module.universities.use_case.SaveUniversitiesToLocalUseCase
+import androidx.lifecycle.asLiveData
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-class UniversitiesViewModel @Inject constructor(
+@HiltViewModel
+class UniversitiesViewModel
+@Inject constructor(
     val getUniversitiesUseCase: GetUniversitiesUseCase
 ) : BaseViewModel() {
 
 
-    init {
-        (DaggerAppComponent.create() as AppComponent).inject(this)
-    }
-
-
     val adapter = UniversitiesAdapter()
-    val loading = MutableLiveData(true)
 
     init {
         getUniversitiesUseCase.universitiesResponse.responseCollect({
 
         }) {
-//            getLocalUniversities()
+            getLocalUniversities()
         }
 
-//        fetchOnlineUniversities()
+        fetchOnlineUniversities()
     }
-    /*
+
 
 
 
@@ -58,7 +57,7 @@ class UniversitiesViewModel @Inject constructor(
             launchTask {
                 saveToLocalUseCase.saveToLocal(universities)
             }
-        }*/
+        }
 
 
 }

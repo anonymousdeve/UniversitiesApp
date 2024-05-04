@@ -6,7 +6,8 @@ import javax.inject.Inject
 
 class GetUniversitiesUseCase
 @Inject
-constructor(private val universitiesRepo: UniversitiesRepo)  {
+constructor(val universitiesRepo: UniversitiesRepo) {
+
 
     val universitiesResponse = universitiesRepo.getUniversitiesResponse
 

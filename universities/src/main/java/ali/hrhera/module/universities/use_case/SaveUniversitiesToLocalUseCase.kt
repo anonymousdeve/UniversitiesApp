@@ -7,6 +7,7 @@ import javax.inject.Inject
 class SaveUniversitiesToLocalUseCase
 @Inject
 constructor(private val universitiesRepo: UniversitiesRepo) {
+
     suspend fun saveToLocal(universities: Universities) = universitiesRepo.saveToLocal(universities)
 
 }

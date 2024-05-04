@@ -5,14 +5,13 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onStart
-import java.net.SocketTimeoutException
 import retrofit2.HttpException
+import java.net.SocketTimeoutException
 
 const val NO_INTERNET = 10
 const val BAD_INTERNET = 11
 
-abstract class BaseRepository() {
-
+open class BaseRepository  {
 
 
     private val defaultDispatcher = Dispatchers.IO
@@ -34,13 +33,13 @@ abstract class BaseRepository() {
     }
 
     private fun getErrorBody(throwable: Throwable): BaseErrorServerResponse = when (throwable) {
-        is SocketTimeoutException -> BaseErrorServerResponse(BAD_INTERNET, )
+        is SocketTimeoutException -> BaseErrorServerResponse(BAD_INTERNET)
         is HttpException -> {
             BaseErrorServerResponse(
                 throwable.response()?.code() ?: 0, throwable.response()?.errorBody()?.string() ?: throwable.message
             )
         }
 
-        else -> BaseErrorServerResponse(NO_INTERNET, throwable.message )
+        else -> BaseErrorServerResponse(NO_INTERNET, throwable.message)
     }
 }

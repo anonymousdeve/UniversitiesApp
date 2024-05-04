@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-kapt")
     id("com.android.library")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -37,7 +38,10 @@ android {
 }
 
 dependencies {
+    implementation(Libs.core_ktx)
+
     /////networking
+
     implementation(Libs.gson)
     implementation(Libs.logging_interceptor)
     implementation(Libs.okhttp)
@@ -55,10 +59,15 @@ dependencies {
     implementation(Libs.coroutines_core)
 
 
-     ///////////////dagger2
-     implementation(Libs.dagger_android)
-     kapt(Libs.dagger_compiler_kapt)
-     kapt(Libs.dagger_processor_kapt)
+     ///////////////hilt
+     implementation(Libs.hilt_android)
+     implementation(Libs.hilt_worker)
+     kapt(Libs.kapt_hilt_compiler)
+     kapt(Libs.kapt_dagger_hilt_compiler)
+     kapt(Libs.kapt_hilt_android_compiler)
+
+
+
 
     // test and show api call response in notification
     // Chunk plugin to track apis response

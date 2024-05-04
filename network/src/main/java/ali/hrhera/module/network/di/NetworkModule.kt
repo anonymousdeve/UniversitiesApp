@@ -10,6 +10,9 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -20,12 +23,12 @@ import javax.inject.Singleton
 
 
 @Module
+@InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    //Hilt Provide Network Cache
     @Provides
     @Singleton
-    fun provideCache(context: Context): Cache =
+    fun provideCache(@ApplicationContext context: Context): Cache =
         Cache(context.cacheDir, CACHE_SIZE)
 
     //
@@ -53,7 +56,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideChuckerInterceptor(context: Context): ChuckerInterceptor =
+    fun provideChuckerInterceptor(@ApplicationContext context: Context): ChuckerInterceptor =
         ChuckerInterceptor.Builder(context = context)
             .build()
 

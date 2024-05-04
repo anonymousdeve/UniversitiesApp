@@ -22,7 +22,15 @@ object Versions {
 
 
     val CHUCKER = "4.0.0"
-    val DAGGER = "2.20"
+
+    //hilt
+    val HILT = "2.48"
+    val HILT_COMPILER = "1.2.0"
+    val HILT_WORKER = "1.2.0"
+
+
+    val RUNTIME_WORKER_KTX = "2.7.0"
+    val RUNTIME_WORKER = "2.7.1"
 
 
     val FRAGMENT = "1.6.2"
@@ -32,7 +40,6 @@ object Versions {
 
 
     val NAVIGATION = "2.7.7"
-
 
 
 }
