@@ -10,7 +10,13 @@ class UniversitiesAdapter : SingleViewHolderBaseRecyclerAdapter<University, Item
     override fun createBinding(parent: ViewGroup, viewType: Int) =
         ItemSingleUniversityBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
+    var onItemClickHandel: (University) -> Unit = {}
+
     override fun bind(binding: ItemSingleUniversityBinding, position: Int) {
+        binding.executePendingBindings()
+        binding.model = AdapterViewModel(currentData[position]).apply {
+            onItemClick = onItemClickHandel
+        }
 
     }
 }

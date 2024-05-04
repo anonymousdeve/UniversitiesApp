@@ -10,4 +10,9 @@
         android:name="ali.hrhera.module.universities.ui.UniversitiesListFragment"
         android:label="UniversitiesListFragment"
         tools:layout="@layout/fragment_universities_list" />
+    <fragment
+        android:id="@+id/fragment_university_details"
+        android:name="ali.hrhera.module.universities.ui.UniversitiesListFragment"
+        android:label="UniversitiesListFragment"
+        tools:layout="@layout/fragment_universities_list" />
 </navigation>

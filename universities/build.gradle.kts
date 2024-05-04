@@ -62,6 +62,8 @@ dependencies {
 
     implementation(Libs.recycler_view)
 
+    implementation(Libs.material)
+
 
 
 

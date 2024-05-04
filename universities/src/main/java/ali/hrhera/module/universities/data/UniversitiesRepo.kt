@@ -4,6 +4,7 @@ import ali.hrhera.module.base.data.local.UniversityDAO
 import ali.hrhera.module.base.data.network.BaseRepository
 import ali.hrhera.module.base.data.network.BaseResponse
 import ali.hrhera.module.base.domain.Universities
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.emitAll
 import javax.inject.Inject
@@ -16,7 +17,7 @@ class UniversitiesRepo
 
 
 
-    val getUniversitiesResponse = MutableStateFlow<BaseResponse<Universities>>(BaseResponse.None)
+    val getUniversitiesResponse = MutableSharedFlow<BaseResponse<Universities>>(replay = 0)
 
     suspend fun getUniversities(country: String) =
         getUniversitiesResponse.emitAll(flow = buildApi {
